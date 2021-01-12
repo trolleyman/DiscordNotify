@@ -133,7 +133,7 @@ public class DiscordNotifyPlugin extends JavaPlugin implements Listener {
             post.setEntity(httpEntity);
 
             try (final CloseableHttpResponse response = client.execute(post, new BasicHttpContext())) {
-                if (response.getStatusLine().getStatusCode() == 200) {
+                if (response.getStatusLine().getStatusCode() >= 200 && response.getStatusLine().getStatusCode() < 300) {
                     getLogger().warning("Sent Discord message: \"" + message + "\".");
                 } else {
                     getLogger().warning("HTTP POST to Discord webhook returned status code: " + response.getStatusLine());
