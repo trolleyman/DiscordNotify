@@ -1,0 +1,6 @@
+
+discord-notify:
+  webhook: https://discord.com/api/webhooks/<code>
+  events:
+    - player-join
+    - player-quit
