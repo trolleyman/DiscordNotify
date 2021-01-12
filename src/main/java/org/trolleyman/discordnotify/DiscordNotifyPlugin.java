@@ -1,5 +1,6 @@
 package org.trolleyman.discordnotify;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -126,6 +127,9 @@ public class DiscordNotifyPlugin extends JavaPlugin implements Listener {
             // Construct JSON (https://discord.com/developers/docs/resources/webhook#execute-webhook)
             JsonObject json = new JsonObject();
             json.addProperty("content", message);
+            JsonObject allowedMentionsJson = new JsonObject();
+            allowedMentionsJson.add("parse", new JsonArray());
+            json.add("allowed_mentions", allowedMentionsJson);
 
             // Post JSON
             HttpEntity httpEntity = new StringEntity(json.toString(), ContentType.APPLICATION_JSON);
