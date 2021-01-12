@@ -1,5 +1,5 @@
 name: DiscordNotifyPlugin
-version: 0.1-SNAPSHOT
+version: 0.1
 author: trolleyman
 website: trolleyman.org
 description: Notifies Discord using a webhook when things happen
